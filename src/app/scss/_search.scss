@@ -1,0 +1,51 @@
+// @import "globals";
+
+.searchBar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 40px;
+  margin-bottom: 62px;
+}
+.searchBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #eff0f7;
+  border-radius: 16px;
+  width: 750px;
+  height: 64px;
+}
+.searchInput {
+  width: 700px;
+  height: 60px;
+  border: none;
+  border-radius: 16px;
+
+  background-color: transparent;
+  &:active{
+    border: none;
+  }
+
+}
+.searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 200px;
+  height: 64px;
+  margin-left: 50px;
+}
+.searchBtnText {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+
+  letter-spacing: 0.75px;
+  color: #f7f7fc;
+  text-decoration: none;
+}

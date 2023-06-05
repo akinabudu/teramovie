@@ -1,0 +1,39 @@
+// @import "globals";
+
+.searchMenu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 21px;
+  // font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 1px;
+  color: #14142b;
+  margin-bottom: 41px;
+  cursor: pointer;
+
+}
+.searchWatchList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 1px;
+  color: #bca4ff;
+  gap: 21px;
+  cursor: pointer;
+}
+.active {
+  width: 7px;
+  height: 30px;
+  left: 0px;
+  top: 114px;
+  background: $primary-color;
+  border-radius: 5px;
+}
