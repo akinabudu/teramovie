@@ -15,6 +15,10 @@ type Movie = {
   Title: string;
   Year: string;
   Poster: string;
+  Plot:string;
+  Released:string;
+  imdbRating:string;
+  Runtime:string;
 };
 
 const MovieDetails: React.FC = () => {  
@@ -64,22 +68,19 @@ const MovieDetails: React.FC = () => {
         <div className="posterTitle">
           <div>{movie?.Title}</div>
           <div className="posterDescription">
-            MMA fighter Cole Young seeks out Earth&apos;s greatest champions in
-            order to stand against the enemies of Outworld in a high stakes
-            battle for the universe.
+            {movie?.Plot}
           </div>
           <div className="posterStatus">
             <div className="date">
               <CiClock1 size={10} />
-              23 Apr 2021
-            </div>
+{movie?.Released}            </div>
             <div className="rating">
               <AiOutlineStar size={10} />
-              6.2
+              {movie?.imdbRating}
             </div>
             <div className="duration">
               <CiPlay1 size={18} />
-              1hr 50mins
+              {movie?.Runtime}
             </div>
           </div>
           <div className="posterButtons">

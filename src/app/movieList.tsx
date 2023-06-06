@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import SearchIcon from "@/assets/search-vector-icon.svg";
 import Image from "next/image";
-import Pic from '@/assets/africa.png'
 import Link from "next/link";
 import axios from "axios";
 
@@ -19,7 +18,7 @@ export default function MovieList() {
   const [error, setError] = useState<any>();
   const [loading, setLoading] = useState<string>("");
 
-  const [searchQuery, setSearchQuery] = useState('avenger');
+  const [searchQuery, setSearchQuery] = useState('');
   const handleSearch = async () => {
     try {
       setLoading("loading")
@@ -62,24 +61,17 @@ export default function MovieList() {
         <div style={{ marginBottom: "28px" }}>
           Results for: <span className="results">{searchQuery}</span>
         </div>
-        {/* {PosterList ? (
-          <MoviePoster PosterList={PosterList} />
-        ) : (
-          <div>Loading</div>
-        )} */}
+    
          <div className="gridList">
       {loading?<div>{loading}</div>:movies.map((item:any) => (
         <div className='item'  key={item.imdbID}>
           <Image className="poster" src={item.Poster} alt='Poster' width={210} height={300}/>
-          <Link className="viewButton" href={`/${item.imdbID}`}>
+          <Link className="viewButton" href={`/movieslide/${item.imdbID}`}>
             View
           </Link>
         </div>
       ))}
-      {/* <div id='slide'>
-
-      <MovieSlide />
-      </div> */}
+     
     </div>
       </div>
     </>
