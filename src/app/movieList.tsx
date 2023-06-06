@@ -66,7 +66,7 @@ export default function MovieList() {
       {loading?<div>{loading}</div>:movies.map((item:any) => (
         <div className='item'  key={item.imdbID}>
           <Image className="poster" src={item.Poster} alt='Poster' width={210} height={300}/>
-          <Link className="viewButton" href={`/movieslide/${item.imdbID}`}>
+          <Link className="viewButton" href={`/${item.imdbID}`}>
             View
           </Link>
         </div>
