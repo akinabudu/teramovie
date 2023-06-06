@@ -1,7 +1,5 @@
 'use client'
 import React, { useEffect,useState } from "react";
-// import "../scss/moviedetails.scss";
-import Pic from "@/assets/africa.png";
 import Image from "next/image";
 import { CiClock1, CiPlay1, CiHeart } from "react-icons/ci";
 import { AiOutlineStar } from "react-icons/ai";
