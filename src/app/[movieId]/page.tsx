@@ -6,7 +6,6 @@ import Image from "next/image";
 import { CiClock1, CiPlay1, CiHeart } from "react-icons/ci";
 import { AiOutlineStar } from "react-icons/ai";
 import Link from "next/link";
-import MoviePoster from "../moviePoster";
 import { useParams } from 'next/navigation';
 import axios from "axios";
 

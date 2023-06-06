@@ -1,27 +1,24 @@
-// @import "globals";
-
 .gridList {
   display: grid;
   grid-template-columns: auto auto auto;
   column-gap: 10px;
   row-gap: 10px;
 }
+
 .item {
-  background-color: "red";
-  position: "relative";
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  
 }
+
 .poster {
-  // background-image: url('africa.png');
   border-radius: 16px;
   width: 210px;
   height: 300px;
-  border:1px solid #333333
-  // background-color: red;
+  border: 1px solid #333333;
 }
+
 .viewButton {
   position: absolute;
   display: flex;
@@ -45,7 +42,19 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .gridList {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .gridList {
+    grid-template-columns: auto;
+  }
 }

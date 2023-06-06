@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import MoviePoster from "./moviePoster";
-import { fetchMovie } from "./getmovie";
 import SearchIcon from "@/assets/search-vector-icon.svg";
 import Image from "next/image";
 import Pic from '@/assets/africa.png'

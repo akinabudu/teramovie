@@ -1,28 +1,42 @@
-// @import 'globals';
-
-.layout{
+.layout {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width:100%;
-  // padding: 10px;
-}
-.sidebar{
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-width: 300px;
-border-right: 1px solid #D9DBE9;
-height: 1122px;
-// padding:30px 0 54px ;
-}
-.mainBody{
-  display: flex;
-  width: 1140px;
   flex-direction: column;
-// justify-content: flex-start;
-// align-items: flex-start;
-// height: 1122px;
-padding:114px 0 60px 60px ;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  border-right: 1px solid #D9DBE9;
+  height: auto;
+  padding: 30px 0 54px;
+}
+
+.mainBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+  padding: 30px 0 60px 60px;
+}
+
+@media (min-width: 768px) {
+  .mainBody {
+    max-width: 1140px;
+    margin-left: 30px;
+    padding: 114px 0 60px 60px;
+  }
 }

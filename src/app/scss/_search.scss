@@ -1,5 +1,3 @@
-// @import "globals";
-
 .searchBar {
   display: flex;
   justify-content: flex-start;
@@ -7,6 +5,7 @@
   margin-left: 40px;
   margin-bottom: 62px;
 }
+
 .searchBox {
   display: flex;
   justify-content: space-around;
@@ -16,16 +15,16 @@
   width: 750px;
   height: 64px;
 }
+
 .searchInput {
   width: 700px;
   height: 60px;
   border: none;
   border-radius: 16px;
-color:black;
+  color: black;
   background-color: transparent;
-  
-
 }
+
 .searchButton {
   display: flex;
   justify-content: center;
@@ -37,13 +36,35 @@ color:black;
   height: 64px;
   margin-left: 50px;
 }
+
 .searchBtnText {
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 28px;
-
   letter-spacing: 0.75px;
   color: #f7f7fc;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .searchBox {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .searchButton {
+    width: 100%;
+    margin-top: 16px;
+    margin-left: 0;
+  }
 }

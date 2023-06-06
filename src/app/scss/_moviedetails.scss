@@ -5,20 +5,20 @@
 }
 
 .poster {
-  // background-image: url('africa.png');
   border-radius: 16px;
   width: 330px;
   height: 399px;
   border: 1px solid #333333;
-  // background-color: red;
   margin-right: 10px;
 }
+
 .posterDetails {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
+
 .posterTitle {
   font-style: normal;
   font-weight: 700;
@@ -38,6 +38,7 @@
   color: #14142b;
   margin-bottom: 42px;
 }
+
 .posterStatus {
   display: flex;
   justify-content: flex-start;
@@ -46,28 +47,8 @@
   margin-bottom: 65px;
 }
 
-.date {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 34px;
-  letter-spacing: 0.75px;
-  color: #4e4b66;
-}
-.rating {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 34px;
-  letter-spacing: 0.75px;
-  color: #4e4b66;
-}
+.date,
+.rating,
 .duration {
   display: flex;
   align-items: center;
@@ -115,6 +96,7 @@
   width: 70px;
   height: 64px;
 }
+
 .similarTitle {
   font-style: normal;
   font-weight: 700;
@@ -133,4 +115,54 @@
   line-height: 32px;
   letter-spacing: 1px;
   color: #14142b;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .posterItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .poster {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .posterDetails {
+    align-items: flex-start;
+  }
+
+  .posterTitle {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 16px;
+  }
+
+  .posterDescription {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 32px;
+  }
+
+  .posterStatus {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .date,
+  .rating,
+  .duration {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .watchButton {
+    width: 150px;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+  }
 }

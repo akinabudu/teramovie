@@ -1,11 +1,9 @@
-// @import "globals";
-
 .searchMenu {
+  /* Styles for larger screens */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 21px;
-  // font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -14,9 +12,10 @@
   color: #14142b;
   margin-bottom: 41px;
   cursor: pointer;
-
 }
+
 .searchWatchList {
+  /* Styles for larger screens */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -29,11 +28,33 @@
   gap: 21px;
   cursor: pointer;
 }
+
 .active {
+  /* Styles for larger screens */
   width: 7px;
   height: 30px;
   left: 0px;
   top: 114px;
   background: $primary-color;
   border-radius: 5px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .searchMenu,
+  .searchWatchList {
+    /* Adjust the styles for smaller screens */
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchMenu,
+  .searchWatchList {
+    /* Adjust the styles for even smaller screens */
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
