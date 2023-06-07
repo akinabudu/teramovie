@@ -1,9 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SearchIcon from "@/assets/search-vector-icon.svg";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import { MyContext } from "./providers";
 
 
 
@@ -17,8 +18,33 @@ export default function MovieList() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [error, setError] = useState<any>();
   const [loading, setLoading] = useState<string>("");
+  const { movieResult, setMovieResult }= useContext(MyContext);
 
   const [searchQuery, setSearchQuery] = useState('');
+useEffect(()=>{
+  const List = async () => {
+    try {
+      setLoading("loading")
+      const response = await axios.get(
+        `https://www.omdbapi.com/?apikey=e2f484ab&s=avenger`
+        );
+      if (response.data.Search) {
+        const results: Movie[] = response.data.Search.slice(0, 6);
+        setLoading("")
+        setMovies(results);
+        setMovieResult(results);
+      } else {
+        setMovies([]);
+      }
+    } catch (error) {
+      setLoading("")
+      setError(error)
+      console.error('Error searching movies:', error);
+    }
+  };
+List()
+},[])
+
   const handleSearch = async () => {
     try {
       setLoading("loading")
@@ -29,6 +55,7 @@ export default function MovieList() {
         const results: Movie[] = response.data.Search.slice(0, 6);
         setLoading("")
         setMovies(results);
+        setMovieResult(results);
       } else {
         setMovies([]);
       }
@@ -56,7 +83,7 @@ export default function MovieList() {
           <span className="searchBtnText">Search</span>
         </Link>
         {error && <div>{error}</div>}
-      </div>{" "}
+      </div>{console.log('result Context: ',movieResult)}
       <div className="movieList">
         <div style={{ marginBottom: "28px" }}>
           Results for: <span className="results">{searchQuery}</span>

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 
 
 export default function PageLayout() {
+
   const pathname = usePathname();
 
   return (

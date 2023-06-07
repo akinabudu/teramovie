@@ -1,22 +1,23 @@
 'use client'
-import React, { useEffect,useState } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import Image from "next/image";
 import { CiClock1, CiPlay1, CiHeart } from "react-icons/ci";
 import { AiOutlineStar } from "react-icons/ai";
 import Link from "next/link";
 import { useParams } from 'next/navigation';
 import axios from "axios";
+import { MyContext } from "../providers";
 
 
 type Movie = {
-  imdbID: string;
-  Title: string;
-  Year: string;
-  Poster: string;
-  Plot:string;
-  Released:string;
-  imdbRating:string;
-  Runtime:string;
+  imdbID?: string;
+  Title?: string;
+  Year?: string;
+  Poster?: string;
+  Plot?:string;
+  Released?:string;
+  imdbRating?:string;
+  Runtime?:string;
 };
 
 const MovieDetails: React.FC = () => {  
@@ -24,7 +25,9 @@ const MovieDetails: React.FC = () => {
   const [movie, setMovie] = useState<Movie | null>(null);
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const { movieResult} = useContext(MyContext);
 
+  console.log('another result:', movieResult)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -93,9 +96,11 @@ const MovieDetails: React.FC = () => {
       </div>
       <div>
         <div className="similarTitle">Similar Movies</div>
-        {/* <div style={{display:'flex', justifyContent:'flex-start'}}>
-          <MoviePoster PosterList={PosterList2} />
-        </div> */}
+        {movieResult && movieResult.map((item:any)=>{<div key={item.imdbID}>
+1
+          {item.imdbID}
+        </div>
+        })}
       </div>
     </div>
   );

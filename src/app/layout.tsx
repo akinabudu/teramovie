@@ -1,6 +1,7 @@
 import "./scss/globals.scss";
 import { Poppins } from "next/font/google";
 import PageLayout from "./pageLayout";
+import { MyProvider } from "./providers";
 
 const poppins = Poppins({ weight: '400',
 subsets: ['latin'], });
@@ -18,12 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
+        <MyProvider>
         <div className="layout">
           <div className="sidebar">
             <PageLayout />
           </div>
           <div className="mainBody">{children}</div>
         </div>
+        </MyProvider>
       </body>
     </html>
   );
