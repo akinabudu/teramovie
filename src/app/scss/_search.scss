@@ -7,21 +7,30 @@
 
 .searchBox {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   background-color: #eff0f7;
   border-radius: 16px;
   width: 750px;
   height: 64px;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
 }
 
 .searchInput {
-  width: 65searchInput0px;
+  width: 650px;
   height: 60px;
   border: none;
   border-radius: 16px;
   color: black;
   background-color: transparent;
+  &:focus{
+      outline: none;
+      border: none;
+      
+  }
 }
 
 .searchButton {
