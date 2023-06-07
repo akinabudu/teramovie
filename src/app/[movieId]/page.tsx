@@ -1,33 +1,32 @@
-'use client'
-import React, { useContext, useEffect,useState } from "react";
-import Image from "next/image";
-import { CiClock1, CiPlay1, CiHeart } from "react-icons/ci";
-import { AiOutlineStar } from "react-icons/ai";
-import Link from "next/link";
-import { useParams } from 'next/navigation';
-import axios from "axios";
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useRef, useContext, useState } from "react";
+import { BsArrowLeft } from "react-icons/bs";
 import { MyContext } from "../providers";
-
+import axios from "axios";
+import { useParams } from "next/navigation";
+import Image from "next/image";
 
 type Movie = {
   imdbID?: string;
   Title?: string;
   Year?: string;
   Poster?: string;
-  Plot?:string;
-  Released?:string;
-  imdbRating?:string;
-  Runtime?:string;
+  Plot?: string;
+  Released?: string;
+  imdbRating?: string;
+  Runtime?: string;
 };
 
-const MovieDetails: React.FC = () => {  
+const ModalPage: React.FC = () => {
+  const [close, setClose] = useState("flex");
   const params = useParams();
   const [movie, setMovie] = useState<Movie | null>(null);
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const { movieResult} = useContext(MyContext);
+  const router = useRouter();
+  // const { movieResult } = useContext(MyContext);
 
-  console.log('another result:', movieResult)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -56,65 +55,36 @@ const MovieDetails: React.FC = () => {
     return <div>Error: {error.message}</div>;
   }
 
+  function handleClick() {
+    setClose("none");
+    router.back();
+  }
+
   return (
-    <div className="container">
-      <div className="posterItem">
+    <div
+      style={{ display: `${close}` }}
+      onClick={handleClick}
+      className="modal"
+    >
+      <div className="modalContent">
+        {/* <div className="slide"> */}
+        <button className="arrow" onClick={handleClick}>
+          <BsArrowLeft size={18} />
+        </button>
         <Image
           className="poster"
           src={movie?.Poster ?? ""}
           alt="Poster"
           width={330}
           height={399}
-        />
-        <div className="posterTitle">
-          <div>{movie?.Title}</div>
-          <div className="posterDescription">
-            {movie?.Plot}
-          </div>
-          <div className="posterStatus">
-            <div className="date">
-              <CiClock1 size={10} />
-{movie?.Released}            </div>
-            <div className="rating">
-              <AiOutlineStar size={10} />
-              {movie?.imdbRating}
-            </div>
-            <div className="duration">
-              <CiPlay1 size={18} />
-              {movie?.Runtime}
-            </div>
-          </div>
-          <div className="posterButtons">
-            <Link href="#" className="watchButton">
-              Watch Now
-            </Link>
-            <div className="likeButton">
-              <CiHeart />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div className="similarTitle">Similar Movies</div>
-        <div style={{display:'flex', flexDirection:'row', gap:'10px',}}>
-
-        {movieResult && movieResult.slice(0,3).map((item:any)=>(<div className="item"  key={item.imdbID}>
-          <Image
-          className="poster"
-          src={item?.Poster ?? ""}
-          alt="Poster"
-          width={330}
-          height={399}
-        />
-        <Link className="viewButton" href={`/${item.imdbID}`}>
-            View
-          </Link>
-        </div>
-        ))}
-        </div>
+        />{" "}
+        <div className="title">{movie?.Title}</div>
+        <div className="description">{movie?.Plot}</div>
+        <div className="button">Watch</div>
+        {/* </div> */}
       </div>
     </div>
   );
 };
 
-export default MovieDetails;
+export default ModalPage;
