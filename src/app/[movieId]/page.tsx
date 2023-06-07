@@ -6,6 +6,7 @@ import { MyContext } from "../providers";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import Link from 'next/link'
 
 type Movie = {
   imdbID?: string;
@@ -25,7 +26,6 @@ const ModalPage: React.FC = () => {
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
-  // const { movieResult } = useContext(MyContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,11 +63,10 @@ const ModalPage: React.FC = () => {
   return (
     <div
       style={{ display: `${close}` }}
-      onClick={handleClick}
+      // onClick={handleClick}
       className="modal"
     >
       <div className="modalContent">
-        {/* <div className="slide"> */}
         <button className="arrow" onClick={handleClick}>
           <BsArrowLeft size={18} />
         </button>
@@ -78,13 +77,12 @@ const ModalPage: React.FC = () => {
           width={330}
           height={399}
         />{" "}
-        <div className="title">{movie?.Title}</div>
-        <div className="description">{movie?.Plot}</div>
-        <div className="button">Watch</div>
-        {/* </div> */}
+        <div className="posterTitle">{movie?.Title}</div>
+        <div className="posterDescription">{movie?.Plot}</div>
+        <Link href={`/movieDetails/${params.movieId}`} className="button">Watch</Link>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default ModalPage;
