@@ -98,7 +98,7 @@ const MovieDetails: React.FC = () => {
         <div className="similarTitle">Similar Movies</div>
         <div style={{display:'flex', flexDirection:'row', gap:'10px',}}>
 
-        {movieResult && movieResult.slice(0,3).map((item:any)=>(<div  key={item.imdbID}>
+        {movieResult && movieResult.slice(0,3).map((item:any)=>(<div className="item"  key={item.imdbID}>
           <Image
           className="poster"
           src={item?.Poster ?? ""}
@@ -106,6 +106,9 @@ const MovieDetails: React.FC = () => {
           width={330}
           height={399}
         />
+        <Link className="viewButton" href={`/${item.imdbID}`}>
+            View
+          </Link>
         </div>
         ))}
         </div>
