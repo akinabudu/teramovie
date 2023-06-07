@@ -96,11 +96,19 @@ const MovieDetails: React.FC = () => {
       </div>
       <div>
         <div className="similarTitle">Similar Movies</div>
-        {movieResult && movieResult.map((item:any)=>{<div key={item.imdbID}>
-1
-          {item.imdbID}
+        <div style={{display:'flex', flexDirection:'row', gap:'10px',}}>
+
+        {movieResult && movieResult.slice(0,3).map((item:any)=>(<div  key={item.imdbID}>
+          <Image
+          className="poster"
+          src={item?.Poster ?? ""}
+          alt="Poster"
+          width={330}
+          height={399}
+        />
         </div>
-        })}
+        ))}
+        </div>
       </div>
     </div>
   );
