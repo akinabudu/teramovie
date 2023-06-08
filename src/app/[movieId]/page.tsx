@@ -71,7 +71,7 @@ const ModalPage: React.FC = () => {
           <BsArrowLeft size={18} />
         </button>
         <Image
-          className="poster"
+          className="posterImage"
           src={movie?.Poster ?? ""}
           alt="Poster"
           width={330}

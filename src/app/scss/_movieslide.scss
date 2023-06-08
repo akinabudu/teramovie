@@ -15,8 +15,8 @@
 .modalContent {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   width: 332px;
   height: 100%;
   background-color: white;
@@ -24,12 +24,23 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   animation: slideInContent 0.3s forwards;
-  color:black
+  color:black;
+  overflow: scroll;
+  gap: 20px;
+
+}
+
+.posterImage{
+  border-radius: 16px;
+  width: 80%;
+  height: 50%;
+  border: 1px solid #333333;
+  margin-right: 10px;
 }
 .description{
   font-style: normal;
 font-weight: 400;
-font-size: 22px;
+font-size: 18px;
 line-height: 32px;
 letter-spacing: 1px;
 color: #14142B;
@@ -40,8 +51,8 @@ color: #14142B;
   // flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 270px;
-  height: 60px;
+  width: 80%;
+  height: 30%;
   background: #5F2EEA;
 border-radius: 40px;
 color:white;
@@ -49,10 +60,14 @@ cursor: pointer;
 }
 
 .arrow{
+  display: flex;
+  width:100%;
+  justify-content: flex-start;
   background-color: transparent;
   border:none;
+  margin-top:20px;
+  margin-bottom:30px;
 }
-
 
 @keyframes slideIn {
   0% {
