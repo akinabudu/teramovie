@@ -86,7 +86,7 @@ List()
       </div>{console.log('result Context: ',movieResult)}
       <div className="movieList">
         <div style={{ marginBottom: "28px" }}>
-          Results for: <span className="results">{searchQuery}</span>
+          Results for: <span className="results">{searchQuery ||'avenger'}</span>
         </div>
     
          <div className="gridList">
